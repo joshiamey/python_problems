@@ -1,3 +1,7 @@
+import sys
+import re
+
+
 class Stack:
 	def __init__(self):
 		self.items = []
@@ -16,3 +20,31 @@ class Stack:
 
 	def size(self):
 		return len(self.items)
+
+
+def doStore(stack,test):
+
+	for num in test.split():
+		stack.push(num)
+
+def printalternate(stack):
+
+	alternates = []
+	while not stack.isEmpty():
+		alternates.append(stack.pop())
+		if not stack.isEmpty():
+			stack.pop()
+
+	print(" ".join(alternates))
+
+
+if len(sys.argv) == 2:
+	s = Stack()
+	test_cases = open(sys.argv[1], 'r')
+	for test in test_cases:
+		doStore(s,test)
+		printalternate(s)
+
+	test_cases.close()
+else:
+    print("Usage: python permutations.py filename")

@@ -22,5 +22,5 @@ def parChecker(arg):
 	return balanced
 
 
-args = "{[(])}"
+args = "[]"
 print(parChecker(args))
